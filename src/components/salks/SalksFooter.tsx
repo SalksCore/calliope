@@ -8,20 +8,20 @@ import { legalList, type LegalDocKey, type LegalLang } from './legal';
  * contact, puis © et pages légales.
  */
 export const SALKS_LINKS = {
-  portfolio: 'https://salks.fr',
+  portfolio: 'https://salks.me',
   github: 'https://github.com/SalksCore',
   earthquest: 'https://github.com/EarthQuestMc',
   email: 'salks@earthquest.fr',
 };
 
 export const SALKS_PROJECTS = [
-  { name: 'Chronos', href: 'https://docs.salks.fr', hue: '#c4b5fd' },
-  { name: 'Kern', href: 'https://kern.salks.fr', hue: '#ff7a3d' },
-  { name: 'Hermès', href: 'https://hermes.salks.fr', hue: '#9b7dff' },
-  { name: 'Mnémosyne', href: 'https://mnemo.salks.fr', hue: '#f472b6' },
-  { name: 'Minecraft', href: 'https://docs.salks.fr/minecraft', hue: '#5fd068' },
-  { name: 'MySchool', href: 'https://myschool.salks.fr', hue: '#3fd0c9' },
-  { name: 'Calliope', href: 'https://calliope.salks.fr', hue: '#b9e15c' },
+  { name: 'Chronos', href: 'https://docs.salks.me', hue: '#c4b5fd' },
+  { name: 'Kern', href: 'https://kern.salks.me', hue: '#ff7a3d' },
+  { name: 'Hermès', href: 'https://hermes.salks.me', hue: '#9b7dff' },
+  { name: 'Mnémosyne', href: 'https://mnemo.salks.me', hue: '#f472b6' },
+  { name: 'Minecraft', href: 'https://docs.salks.me/minecraft', hue: '#5fd068' },
+  { name: 'MySchool', href: 'https://myschool.salks.me', hue: '#3fd0c9' },
+  { name: 'Calliope', href: 'https://calliope.salks.me', hue: '#b9e15c' },
 ];
 
 const TEXT = {

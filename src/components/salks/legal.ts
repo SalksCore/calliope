@@ -5,7 +5,7 @@ import { renderMarkdown } from './markdown';
 /**
  * Documents légaux d'un site : lus sur Olympe (édités dans le panel), avec la
  * copie locale des modèles communs en secours si Olympe ne répond pas.
- *   NEXT_PUBLIC_OLYMPE_URL  adresse d'Olympe (ex. https://olympe.salks.fr)
+ *   NEXT_PUBLIC_OLYMPE_URL  adresse d'Olympe (ex. https://olympe.salks.me)
  */
 const OLYMPE = (process.env.NEXT_PUBLIC_OLYMPE_URL ?? '').replace(/\/$/, '');
 
