@@ -3,10 +3,10 @@
  */
 export const site = {
   name: "Calliope",
-  tagline: "Tes textes du bac, fichés proprement.",
+  tagline: "Prépare tes textes du bac sans te compliquer la vie.",
   description:
-    "Fiche tes textes du bac de français : explication linéaire pour l'oral, dissertation pour l'écrit. Export PDF et Word, sans compte, rien n'est stocké.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://calliope.salks.fr",
+    "Prépare tes textes du bac de français pour l'oral et l'écrit, puis exporte tes fiches en PDF ou en Word. Calliope fonctionne sans inscription, directement dans ton navigateur.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://calliope.salks.me",
   repo: "https://github.com/SalksCore/calliope",
   year: 2026,
 

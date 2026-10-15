@@ -7,7 +7,7 @@
 
 <p align="center">
   <b>ΚΑΛΛΙΟΠΗ · la muse de l'éloquence</b><br>
-  Fiche tes textes du bac de français : explication linéaire pour l'oral, dissertation pour l'écrit. Aperçu en direct, export PDF et Word, sans compte et sans que rien ne quitte ton navigateur.
+  Prépare tes textes du bac de français pour l'oral et l'écrit. Organise tes idées, vérifie le rendu de ta fiche et télécharge-la en PDF ou en Word. Sans inscription : tes textes restent dans ton navigateur.
 </p>
 
 <p align="center">
@@ -35,7 +35,7 @@
 | **Troisième mode** | En préparation. Les idées sont les bienvenues dans les [issues](https://github.com/SalksCore/calliope/issues). |
 | **Aperçu en direct** | La fiche se recompose à chaque frappe dans le modèle choisi, aux mêmes mesures que le PDF. |
 | **Export PDF et Word** | Trois modèles : *Calliope* (les couleurs du projet), *Classique* (serif, sobre) et *Encre* (compact, noir et blanc). Accents, « guillemets » et espaces insécables respectés. |
-| **Rien n'est stocké** | Pas de compte, pas de serveur, pas de base de données. Les fiches restent dans ton navigateur et se sauvegardent dans un fichier `.json` que tu rouvres quand tu veux. |
+| **Tes données restent sur ton appareil** | Pas de compte ni de base de données. Les fiches restent dans ton navigateur et peuvent être sauvegardées dans un fichier `.json` pour être rouvertes quand tu veux. |
 | **Clair ou sombre** | Le thème suit celui de ton appareil, et se change d'un clic. |
 
 <p align="center">

@@ -27,7 +27,7 @@ export function Showroom() {
             </button>
           ))}
         </div>
-        <p className="faint">L&apos;aperçu reprend les mesures du PDF : ce que tu vois ici est ce que tu télécharges.</p>
+        <p className="faint">L&apos;aperçu te donne une idée du rendu final de ta fiche.</p>
         <Link className="btn primary" href="/fiches/">Essayer avec mon texte</Link>
       </div>
       <div className="stage">

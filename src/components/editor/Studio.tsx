@@ -242,8 +242,8 @@ function Welcome({ ready, onCreate }: { ready: boolean; onCreate: (f: Fiche) => 
         <PantheonLayer id="welcome" seed={13} />
         <div className="hero-inner">
           <span className="kicker"><i />Créer ta fiche</span>
-          <h1>Choisis un mode de fichage<span className="dot">.</span></h1>
-          <p className="lead">Ta fiche se remplit bloc par bloc, avec son aperçu en direct, et s&apos;exporte en PDF ou en Word. Elle reste dans ce navigateur : aucun compte, aucun serveur.</p>
+          <h1>Commence par choisir un format<span className="dot">.</span></h1>
+          <p className="lead">Renseigne ta fiche, vérifie son aperçu, puis télécharge-la en PDF ou en Word. Tout reste dans ce navigateur : pas d&apos;inscription et pas d&apos;envoi sur un serveur.</p>
         </div>
       </section>
       <div className="modes">
@@ -260,7 +260,7 @@ function Welcome({ ready, onCreate }: { ready: boolean; onCreate: (f: Fiche) => 
         <article className="mode">
           <span className="tag">DISSERT · ÉCRIT</span>
           <h3>Dissertation<span className="dot">.</span></h3>
-          <p>Pour maîtriser une œuvre intégrale.</p>
+          <p>Pour travailler une œuvre intégrale.</p>
           <ul><li>Photo du livre</li><li>Auteur, contexte, résumé, thèmes</li><li>Citations clés et leur usage</li><li>Sujets possibles et plans</li></ul>
           <div className="row">
             <button className="btn primary" type="button" disabled={!ready} onClick={() => onCreate(newDissert())}>Nouvelle fiche</button>
@@ -270,7 +270,7 @@ function Welcome({ ready, onCreate }: { ready: boolean; onCreate: (f: Fiche) => 
         <article className="mode soon">
           <span className="tag">BIENTÔT</span>
           <h3>Troisième mode<span className="dot">.</span></h3>
-          <p>Un nouveau mode de fichage arrive. Les idées sont les bienvenues sur <Link href="https://github.com/SalksCore/calliope/issues">GitHub</Link>.</p>
+          <p>Un autre format arrivera bientôt. Les suggestions sont les bienvenues sur <Link href="https://github.com/SalksCore/calliope/issues">GitHub</Link>.</p>
         </article>
       </div>
     </div>
