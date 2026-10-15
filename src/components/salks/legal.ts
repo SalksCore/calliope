@@ -14,6 +14,7 @@ const OLYMPE = (process.env.NEXT_PUBLIC_OLYMPE_URL ?? '').replace(/\/$/, '');
  * sites hébergés sur Cloudflare Pages.
  */
 const FALLBACK_IDENTITY: Partial<LegalIdentityValues> = {
+  editorKind: 'particulier',
   editorName: 'Salks',
   editorStatus: 'Particulier, éditeur non professionnel',
   editorEmail: 'salks@earthquest.fr',

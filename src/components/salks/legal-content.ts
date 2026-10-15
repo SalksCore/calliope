@@ -363,12 +363,14 @@ export const LEGAL_DEFAULTS: Record<LegalLang, Record<(typeof LEGAL_DOCS)[number
 
 /** Coordonnées légales, telles que stockées dans LegalIdentity. */
 export type LegalIdentityValues = {
+  /** "particulier" (non professionnel, sous pseudonyme) ou "pro" (entreprise) */
+  editorKind: string;
   editorName: string; editorStatus: string; editorSiret: string; editorAddress: string;
   editorEmail: string; editorPhone: string; editorVat: string; publisher: string;
   hostName: string; hostAddress: string; hostContact: string; jurisdiction: string;
 };
 
-/** Champs de l'éditeur qu'un particulier n'a pas : la ligne disparaît quand ils sont vides. */
+/** Champs de l'éditeur qu'un particulier ne publie pas : la ligne disparaît du document. */
 const OPTIONAL_EDITOR_FIELDS = ["siret", "address", "phone", "vat"] as const;
 
 /**
@@ -383,11 +385,15 @@ const ANONYMOUS_NOTE: Record<LegalLang, string> = {
 /** Remplace les balises {{...}}. Un champ vide devient « À compléter ». */
 export function fillLegal(body: string, site: string, id: Partial<LegalIdentityValues>, lang: LegalLang, updated: string) {
   const todo = lang === "en" ? "*To be completed*" : "*À compléter*";
+  // Sans choix explicite (ancienne identité), pas d'adresse = particulier
+  const particulier = (id.editorKind || (id.editorAddress?.trim() ? "pro" : "particulier")) === "particulier";
   const values: Record<(typeof OPTIONAL_EDITOR_FIELDS)[number], string | undefined> = {
     siret: id.editorSiret, address: id.editorAddress, phone: id.editorPhone, vat: id.editorVat,
   };
   for (const field of OPTIONAL_EDITOR_FIELDS) {
-    if (!values[field]?.trim()) body = body.replace(new RegExp(`^\\|[^\\n]*\\{\\{\\s*editor\\.${field}\\s*\\}\\}[^\\n]*\\n`, "m"), "");
+    // Un particulier ne publie jamais ces champs ; une entreprise garde SIRET et adresse, même vides (« À compléter »)
+    const required = !particulier && (field === "siret" || field === "address");
+    if (particulier || (!required && !values[field]?.trim())) body = body.replace(new RegExp(`^\\|[^\\n]*\\{\\{\\s*editor\\.${field}\\s*\\}\\}[^\\n]*\\n`, "m"), "");
   }
   const map: Record<string, string | undefined> = {
     site,
@@ -398,7 +404,7 @@ export function fillLegal(body: string, site: string, id: Partial<LegalIdentityV
     "host.name": id.hostName, "host.address": id.hostAddress, "host.contact": id.hostContact,
     jurisdiction: id.jurisdiction || (lang === "en" ? "the French courts" : "les tribunaux français"),
   };
-  const note = id.editorAddress?.trim() ? "" : ANONYMOUS_NOTE[lang];
+  const note = particulier ? ANONYMOUS_NOTE[lang] : "";
   return body
     .replace(/\{\{\s*editor\.note\s*\}\}/g, note)
     .replace(/\n{3,}/g, "\n\n")

@@ -1,0 +1,7 @@
+// Calliope sur Cloudflare Pages : site 100 % statique (npm run build → out/).
+// Build command : npm run build   ·   Output directory : out
+{
+  "name": "calliope",
+  "pages_build_output_dir": "out",
+  "compatibility_date": "2025-09-23"
+}

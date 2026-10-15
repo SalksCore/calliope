@@ -6,7 +6,7 @@ export const site = {
   tagline: "Tes textes du bac, fichés proprement.",
   description:
     "Fiche tes textes du bac de français : explication linéaire pour l'oral, dissertation pour l'écrit. Export PDF et Word, sans compte, rien n'est stocké.",
-  url: "https://calliope.salks.fr",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://calliope.salks.fr",
   repo: "https://github.com/SalksCore/calliope",
   year: 2026,
 

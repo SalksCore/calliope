@@ -12,3 +12,9 @@ CLAUDE.md
 .claude/
 .agents/
 *.zip
+
+# Variables locales (jamais versionnées)
+.env
+.env*.local
+.dev.vars
+.wrangler/

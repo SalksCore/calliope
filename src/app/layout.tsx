@@ -4,6 +4,7 @@ import { site } from "@/config/site";
 import { asset } from "@/lib/asset";
 import "@/components/salks/salks.css";
 import "./globals.css";
+import { SalksAnalytics } from "@/components/salks/SalksAnalytics";
 
 const jakarta = localFont({
   src: [
@@ -54,7 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SalksAnalytics site="calliope" />
+      </body>
     </html>
   );
 }
