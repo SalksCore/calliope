@@ -1,0 +1,118 @@
+/* Copie de freelance/sites/_salks : ne pas modifier ici, relancer sync.mjs. */
+/* ─────────────────────────────────────────────────────────────────────
+   Kit Salks. — pied de page et pages légales, identiques à ceux de Chronos.
+   Source unique : freelance/sites/_salks. Copié dans chaque site par sync.mjs,
+   ne pas modifier les copies.
+   Le site fournit seulement sa teinte : --sk-hue (sombre) et --sk-hue-light (clair).
+   ───────────────────────────────────────────────────────────────────── */
+.sk {
+  --sk-bg: #0e0d11; --sk-panel: #17151b; --sk-card: #131216;
+  --sk-line: #232028; --sk-text: #f2f0f4; --sk-muted: #9a95a3; --sk-faint: #6a6572;
+  --sk-wip: #fbbf24;
+  --sk-accent: var(--sk-hue, #9b7dff);
+  --sk-ease: cubic-bezier(.22, 1, .36, 1);
+  /* Chaque variable a son repli : une var() non définie invaliderait toute la déclaration font */
+  --sk-sans: var(--font-jakarta, 'Plus Jakarta Sans'), 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --sk-mono: var(--font-jb, var(--font-jet, 'JetBrains Mono')), 'JetBrains Mono', Consolas, ui-monospace, monospace;
+}
+:root[data-theme="light"] .sk {
+  --sk-bg: #faf9fa; --sk-panel: #f3f1f3; --sk-card: #ffffff;
+  --sk-line: #e5e1e7; --sk-text: #1a171c; --sk-muted: #6a6472; --sk-faint: #97919e;
+  --sk-wip: #d97706;
+  --sk-accent: var(--sk-hue-light, #7c5cff);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .sk {
+    --sk-bg: #faf9fa; --sk-panel: #f3f1f3; --sk-card: #ffffff;
+    --sk-line: #e5e1e7; --sk-text: #1a171c; --sk-muted: #6a6472; --sk-faint: #97919e;
+    --sk-wip: #d97706;
+    --sk-accent: var(--sk-hue-light, #7c5cff);
+  }
+}
+
+/* ── Logo Salks. ─────────────────────────────────────────────────────── */
+.sk .sk-salks{ display: block; height: 1em; width: auto; overflow: visible; }
+.sk .sk-salks .w{ fill: var(--sk-text); font-family: var(--sk-sans); }
+.sk .sk-salks .a{ fill: var(--sk-accent); }
+
+.sk .sk-eyebrow{ display: inline-block; font: 11px/1 var(--sk-mono); letter-spacing: 1.6px; text-transform: uppercase; color: var(--sk-accent); }
+
+/* ── Pied de page ────────────────────────────────────────────────────── */
+.sk.sk-footer{ position: relative; margin: 0; padding: 0; border-top: 1px solid var(--sk-line); background: var(--sk-bg); color: var(--sk-text); overflow: hidden; font-family: var(--sk-sans); }
+.sk.sk-footer::before{ content: ''; position: absolute; left: 50%; top: 0; width: 60%; height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--sk-accent), transparent); opacity: .6; }
+.sk.sk-footer a{ color: inherit; text-decoration: none; }
+.sk .sk-footer-credit{ max-width: 1120px; margin: 40px auto 0; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; border: 1px solid var(--sk-line); border-radius: 12px; background: var(--sk-card); width: calc(100% - 48px); box-sizing: border-box; }
+.sk .sk-footer-credit p{ margin: 0; color: var(--sk-muted); font-size: .95rem; }
+.sk .sk-footer-credit b{ color: var(--sk-text); font-weight: 800; }
+.sk .sk-footer-credit b i{ display: inline-block; width: .22em; height: .22em; margin-left: .05em; border-radius: 50%; background: var(--sk-accent); }
+.sk .sk-footer-dots{ display: flex; gap: 6px; margin-top: 10px; }
+.sk .sk-footer-dots span{ width: 7px; height: 7px; border-radius: 50%; }
+.sk .sk-footer-credit > a{ display: inline-flex; gap: 8px; align-items: center; padding: 9px 14px; border: 1px solid var(--sk-line); border-radius: 8px; background: var(--sk-panel); color: var(--sk-text); font-size: .88rem; font-weight: 600; transition: border-color .2s, color .2s; }
+.sk .sk-footer-credit > a:hover{ border-color: var(--sk-accent); color: var(--sk-accent); }
+.sk .sk-footer-inner{ max-width: 1120px; margin: 0 auto; padding: 56px 24px 40px; display: grid; grid-template-columns: 1.2fr 2fr; gap: 40px; }
+.sk .sk-footer-logo{ display: inline-block; font-size: 44px; transition: transform .4s var(--sk-ease); }
+.sk .sk-footer-logo:hover{ transform: translateY(-2px); }
+.sk .sk-footer-motto{ margin: 16px 0 0; font: 11px/1.8 var(--sk-mono); letter-spacing: 2.5px; text-transform: uppercase; color: var(--sk-muted); max-width: 280px; }
+.sk .sk-footer-motto span{ color: var(--sk-accent); }
+.sk .sk-footer-inner.has-links .sk-footer-cols{ grid-template-columns: repeat(4, 1fr); }
+.sk .sk-footer-cols{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sk .sk-footer-cols > div{ display: flex; flex-direction: column; gap: 10px; }
+.sk .sk-footer-cols .sk-eyebrow{ margin-bottom: 6px; }
+.sk .sk-footer-cols a, .sk .sk-footer-cols span:not(.sk-eyebrow){ color: var(--sk-muted); font-size: .92rem; width: fit-content; }
+.sk .sk-footer-cols a{ position: relative; transition: color .2s; }
+.sk .sk-footer-cols a::after{ content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--sk-accent); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--sk-ease); }
+.sk .sk-footer-cols a:hover{ color: var(--sk-text); }
+.sk .sk-footer-cols a:hover::after{ transform: scaleX(1); }
+.sk .sk-footer-bottom{ max-width: 1120px; margin: 0 auto; padding: 18px 24px 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--sk-line); font: 11px var(--sk-mono); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sk-faint); }
+.sk .sk-footer-bottom b{ color: var(--sk-accent); }
+.sk .sk-footer-legal{ display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.sk .sk-footer-legal a{ color: var(--sk-faint); transition: color .2s; }
+.sk .sk-footer-legal a:hover{ color: var(--sk-accent); }
+@media (max-width: 860px) {
+  .sk .sk-footer-inner{ grid-template-columns: 1fr; }
+  .sk .sk-footer-cols, .sk .sk-footer-inner.has-links .sk-footer-cols{ grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Pages légales ───────────────────────────────────────────────────── */
+.sk.sk-legal{ max-width: 860px; margin: 0 auto; padding: 120px 24px 80px; color: var(--sk-text); font: 16px/1.7 var(--sk-sans); animation: sk-page-in .6s .05s var(--sk-ease) both; }
+.sk.sk-legal h1{ margin: 0 0 1.2rem; font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+.sk.sk-legal h1::after{ content: ''; display: inline-block; width: .19em; height: .19em; margin-left: .06em; border-radius: 50%; background: var(--sk-accent); }
+.sk.sk-legal h2{ margin: 2.6rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid var(--sk-line); font-size: 1.55rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; }
+.sk.sk-legal h3{ margin: 1.8rem 0 .8rem; font-size: 1.15rem; letter-spacing: -.01em; }
+.sk.sk-legal p, .sk.sk-legal ul, .sk.sk-legal ol, .sk.sk-legal table{ margin: 0 0 1.1rem; }
+.sk.sk-legal ul, .sk.sk-legal ol{ padding-left: 1.4rem; }
+.sk.sk-legal li{ margin: .3rem 0; }
+.sk.sk-legal p, .sk.sk-legal li, .sk.sk-legal td{ color: var(--sk-text); font-size: 1rem; }
+.sk.sk-legal li::marker{ color: var(--sk-accent); }
+.sk.sk-legal ol li::marker{ font-family: var(--sk-mono); font-size: .85em; }
+.sk .sk-legal-body > p:first-child{ font-size: 1.06rem; color: var(--sk-muted); }
+.sk.sk-legal strong{ color: var(--sk-text); }
+.sk .sk-legal-body a{ color: inherit; font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, var(--sk-accent) 40%, transparent); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+.sk .sk-legal-body a:hover{ text-decoration-color: var(--sk-accent); }
+.sk.sk-legal code{ padding: .1em .4em; border: 1px solid var(--sk-line); border-radius: 5px; background: var(--sk-panel); font: .88em var(--sk-mono); }
+.sk.sk-legal em.sk-todo{ display: inline-block; padding: 1px 8px; border: 1px dashed var(--sk-wip); border-radius: 6px; background: color-mix(in srgb, var(--sk-wip) 10%, transparent); color: var(--sk-wip); font: normal 12px/1.5 var(--sk-mono); letter-spacing: .5px; text-transform: uppercase; }
+.sk.sk-legal table{ width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--sk-line); border-radius: 8px; overflow: hidden; font-size: .92rem; }
+.sk.sk-legal thead tr{ background: var(--sk-panel); }
+.sk.sk-legal th{ font: 11px/1.4 var(--sk-mono); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sk-muted); text-align: left; }
+.sk.sk-legal tbody tr{ background: var(--sk-card); transition: background .15s; }
+.sk.sk-legal tbody tr:hover{ background: var(--sk-panel); }
+.sk.sk-legal th, .sk.sk-legal td{ border-bottom: 1px solid var(--sk-line); padding: .7rem 1rem; vertical-align: top; }
+.sk.sk-legal tbody tr:last-child td{ border-bottom: 0; }
+.sk .sk-legal-scroll{ overflow-x: auto; }
+
+.sk .sk-updated{ display: table; margin: 0 0 1.6rem; padding: 5px 14px; border: 1px solid var(--sk-line); border-radius: 99px; background: var(--sk-card); font: 11px/1.4 var(--sk-mono); letter-spacing: 1.2px; text-transform: uppercase; color: var(--sk-muted); }
+.sk .sk-legal-nav{ display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 2.6rem 0 .5rem; padding-top: 1.4rem; border-top: 1px solid var(--sk-line); }
+.sk .sk-legal-card{ display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border: 1px solid var(--sk-line); border-radius: 8px; background: var(--sk-card); color: var(--sk-text); text-decoration: none; transition: border-color .25s, transform .35s var(--sk-ease); }
+.sk .sk-legal-card:hover{ border-color: var(--sk-accent); transform: translateY(-2px); }
+.sk .sk-legal-card b{ display: block; font-size: 15px; }
+.sk .sk-legal-card i{ display: inline-block; vertical-align: baseline; width: 5px; height: 5px; margin-left: 2px; border-radius: 50%; background: var(--sk-accent); }
+.sk .sk-legal-card small{ color: var(--sk-muted); font-size: 13px; font-weight: 400; }
+
+@keyframes sk-page-in { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) { .sk-legal { animation: none; } }
+
+/* ── Bascule de langue ───────────────────────────────────────────────── */
+.sk-lang { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid rgb(255 255 255 / .12); border-radius: 99px; }
+.sk-lang a { padding: 3px 9px; border-radius: 99px; font: 11px/1.4 var(--font-jb, 'JetBrains Mono'), monospace; letter-spacing: 1px; color: #9c95a3; text-decoration: none; transition: color .15s, background-color .15s; }
+.sk-lang a:hover { color: #f2f0f4; }
+.sk-lang a.on { background: var(--sk-hue, #9b7dff); color: #100c1c; }

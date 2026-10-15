@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.vercel
+
+# fichiers d'agents générés localement, gardés hors du dépôt
+AGENTS.md
+CLAUDE.md
+.claude/
+.agents/
+*.zip
