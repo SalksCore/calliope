@@ -57,7 +57,7 @@ export async function getLegalDoc(site: string, siteName: string, doc: LegalDocK
   };
   if (OLYMPE) {
     try {
-      const res = await fetch(`${OLYMPE}/api/public/legal/${site}/${doc}?lang=${lang}`, { next: { revalidate: 300 } });
+      const res = await fetch(`${OLYMPE}/api/public/legal/${site}/${doc}?lang=${lang}`, { next: { revalidate: 3600 } });
       if (res.ok) {
         const data = (await res.json()) as { title: string; updated: string; markdown: string; overridden?: boolean };
         return { title: data.title, updated: data.updated, html: renderMarkdown(data.overridden ? data.markdown : withAddendum(data.markdown)) };
