@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { asset } from "@/lib/asset";
 import { ThemeToggle } from "./ThemeToggle";
 
-/** Barre flottante commune à toutes les pages. Elle reste sombre dans les deux thèmes, comme sur les autres projets. */
+/** Barre du haut de l'éditeur, même allure que l'en-tête de la vitrine. */
 export function Topbar({ product, nav, start, end, wide }: {
   product: string;
   nav?: { href: string; label: string }[];
@@ -15,8 +14,7 @@ export function Topbar({ product, nav, start, end, wide }: {
       <div className="topbar-inner">
         {start}
         <Link className="brand" href="/" aria-label="Calliope, accueil">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={asset("/img/logo-dark.svg")} alt="Calliope." width={412} height={116} />
+          Calliope<b>.</b>
         </Link>
         <span className="product">{product}</span>
         <span className="spacer" />

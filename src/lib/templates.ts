@@ -25,7 +25,7 @@ export type Template = {
 export const TEMPLATES: Record<TemplateKey, Template> = {
   calliope: {
     key: "calliope", name: "Calliope", description: "Les couleurs du projet, citations surlignées.",
-    family: "sans", label: "mono", size: 10.5, accent: [91, 138, 20], bar: [185, 225, 92], highlight: [242, 248, 224],
+    family: "sans", label: "mono", size: 10.5, accent: [77, 97, 33], bar: [138, 154, 82], highlight: [240, 242, 230],
     band: true, gap: 1, outline: false, docFont: "Calibri",
   },
   classique: {

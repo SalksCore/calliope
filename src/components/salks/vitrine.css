@@ -1,0 +1,218 @@
+/* Copie de freelance/sites/_salks : ne pas modifier ici, relancer sync.mjs. */
+/* ─────────────────────────────────────────────────────────────────────
+   Vitrine Salks. — gabarit commun des sites.
+   Direction : page imprimée la nuit. Fond encre chaud, titres en serif,
+   filets fins plutôt que cartes, aucune lueur ni dégradé décoratif.
+   Une seule couleur propre au site, utilisée avec parcimonie :
+     :root { --site-acc: …; --site-acc-light: …; }
+   Tout est rangé sous .v : le reste du site n'en dépend pas.
+   Thème : [data-theme] sur <html> s'il existe, sinon le réglage du système.
+   ───────────────────────────────────────────────────────────────────── */
+.v {
+  --v-acc: var(--site-acc, #b3a7e8);
+  --v-bg: #0d0d0c; --v-bg-2: #141412; --v-bg-3: #1b1b18;
+  --v-rule: #262622; --v-rule-2: #393833;
+  --v-text: #ece8df; --v-muted: #aaa598; --v-faint: #7a766c;
+  --v-on-solid: #0d0d0c;
+  --v-serif: var(--font-serif), 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --v-sans: var(--font-jakarta, 'Plus Jakarta Sans'), 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --v-mono: var(--font-jb, var(--font-jet, 'JetBrains Mono')), 'JetBrains Mono', Consolas, ui-monospace, monospace;
+  --v-max: 1120px;          /* même largeur que le pied de page commun */
+  min-height: 100vh; background: var(--v-bg); color: var(--v-text); font: 16.5px/1.65 var(--v-sans);
+  -webkit-font-smoothing: antialiased;
+}
+:root[data-theme="light"] .v {
+  --v-acc: var(--site-acc-light, #5a4bb0);
+  --v-bg: #f3f0e8; --v-bg-2: #ebe7dd; --v-bg-3: #e2ddd1;
+  --v-rule: #d8d2c4; --v-rule-2: #bfb8a8;
+  --v-text: #1b1a17; --v-muted: #57534a; --v-faint: #858073;
+  --v-on-solid: #f3f0e8;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .v {
+    --v-acc: var(--site-acc-light, #5a4bb0);
+    --v-bg: #f3f0e8; --v-bg-2: #ebe7dd; --v-bg-3: #e2ddd1;
+    --v-rule: #d8d2c4; --v-rule-2: #bfb8a8;
+    --v-text: #1b1a17; --v-muted: #57534a; --v-faint: #858073;
+    --v-on-solid: #f3f0e8;
+  }
+}
+.v ::selection { background: var(--v-text); color: var(--v-bg); }
+.v :where(a, button, summary, input, select, textarea):focus-visible { outline: 2px solid var(--v-acc); outline-offset: 3px; border-radius: 2px; }
+:where(.v) a { color: inherit; text-decoration: none; }
+.v-wrap { width: min(var(--v-max), calc(100% - 40px)); margin-inline: auto; }
+.v-acc { color: var(--v-acc); }
+.v h1, .v h2, .v h3 { margin: 0; font-family: var(--v-serif); font-weight: 400; letter-spacing: -.015em; line-height: 1.1; text-wrap: balance; }
+.v h1 em, .v h2 em { font-style: italic; color: inherit; }
+.v p { margin: 0; }
+
+/* ── Boutons et liens ─────────────────────────────────────────────── */
+.v-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 18px; border-radius: 3px; border: 1px solid var(--v-rule-2); background: none; font: 600 14.5px/1 var(--v-sans); color: var(--v-text); cursor: pointer; transition: background-color .15s, border-color .15s, color .15s; white-space: nowrap; }
+.v-btn:hover { border-color: var(--v-text); }
+.v-btn svg { width: 16px; height: 16px; flex: none; }
+.v-btn-solid { background: var(--v-text); border-color: var(--v-text); color: var(--v-on-solid); }
+.v-btn-solid:hover { background: var(--v-acc); border-color: var(--v-acc); color: var(--v-on-solid); }
+.v-btn[aria-disabled="true"], .v-btn:disabled { opacity: .5; cursor: not-allowed; }
+.v-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--v-text); text-decoration: underline; text-decoration-color: var(--v-rule-2); text-underline-offset: 5px; text-decoration-thickness: 1px; transition: text-decoration-color .15s; }
+.v-link:hover { text-decoration-color: var(--v-acc); }
+.v-tag { display: inline-flex; align-items: center; gap: 8px; font: 12px/1.4 var(--v-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--v-faint); }
+.v-tag.acc { color: var(--v-acc); }
+.v code { font: .88em var(--v-mono); padding: 1px 6px; border-radius: 3px; background: var(--v-bg-3); color: var(--v-text); border: 0; }
+
+/* ── En-tête ──────────────────────────────────────────────────────── */
+.v-mast { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--v-bg) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--v-rule); }
+.v-mast-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+.v-brand { display: flex; align-items: baseline; gap: 12px; min-width: 0; }
+.v-brand-name { font: 400 25px/1 var(--v-serif); letter-spacing: -.01em; white-space: nowrap; }
+.v-brand-greek { font: 11px/1 var(--v-mono); letter-spacing: .28em; color: var(--v-faint); white-space: nowrap; }
+.v-nav { display: flex; gap: 24px; margin-left: auto; }
+.v-nav a { font-size: 14.5px; color: var(--v-muted); transition: color .15s; }
+.v-nav a:hover, .v-nav a[aria-current="page"] { color: var(--v-text); }
+.v-mast-end { display: flex; align-items: center; gap: 8px; }
+.v-nav + .v-mast-end, .v-brand + .v-mast-end { margin-left: auto; }
+.v-nav + .v-mast-end { margin-left: 0; }
+.v-mast .v-btn { padding: 9px 14px; }
+.v-mast .theme-toggle, .v-mast .v-icon { display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 3px; background: none; color: var(--v-muted); cursor: pointer; }
+.v-mast .theme-toggle:hover, .v-mast .v-icon:hover { color: var(--v-text); background: var(--v-bg-3); }
+.v-mast .sk-lang { border-color: var(--v-rule); border-radius: 3px; }
+.v-mast .sk-lang a { border-radius: 2px; color: var(--v-muted); }
+.v-mast .sk-lang a.on { background: var(--v-text); color: var(--v-bg); }
+.v-menu { display: none; position: relative; }
+.v-menu summary { list-style: none; display: grid; gap: 5px; padding: 12px 8px; cursor: pointer; }
+.v-menu summary::-webkit-details-marker { display: none; }
+.v-menu summary i { width: 18px; height: 1.5px; background: var(--v-text); }
+.v-menu > div { position: absolute; right: 0; top: calc(100% + 12px); display: grid; min-width: 220px; padding: 6px 0; background: var(--v-bg); border: 1px solid var(--v-rule-2); border-radius: 3px; }
+.v-menu > div a { padding: 10px 16px; color: var(--v-muted); }
+.v-menu > div a:hover { color: var(--v-text); background: var(--v-bg-2); }
+
+/* ── Ouverture ────────────────────────────────────────────────────── */
+.v-hero { border-bottom: 1px solid var(--v-rule); }
+.v-hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: clamp(32px, 5vw, 72px); align-items: end; padding-top: clamp(48px, 8vw, 104px); }
+.v-hero-grid.even { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.v-hero-text { display: grid; gap: 26px; padding-bottom: clamp(48px, 7vw, 96px); align-content: end; }
+.v-hero-solo { display: grid; gap: 26px; max-width: 860px; padding-block: clamp(56px, 9vw, 120px); }
+.v-over { font: 12px/1.4 var(--v-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--v-muted); }
+.v-over b { font-weight: 400; color: var(--v-acc); }
+.v h1 { font-size: clamp(2.5rem, 5.4vw, 4.6rem); line-height: 1.04; letter-spacing: -.025em; }
+.v-lead { font-size: clamp(17px, 1.6vw, 19px); line-height: 1.6; color: var(--v-muted); max-width: 34em; }
+.v-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.v-actions .v-btn { padding: 14px 22px; font-size: 15px; }
+.v-facts { display: flex; flex-wrap: wrap; gap: 6px 0; list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--v-rule); font-size: 14px; color: var(--v-faint); }
+.v-facts li + li::before { content: "·"; margin: 0 12px; color: var(--v-rule-2); }
+
+/* Un vrai aperçu du produit, posé en bas de l'ouverture et coupé net. */
+.v-sheet { position: relative; margin: 0; height: clamp(380px, 46vw, 560px); overflow: hidden; border: 1px solid var(--v-rule); border-bottom: 0; border-radius: 3px 3px 0 0; background: var(--v-bg-2); padding: 22px 22px 0; }
+.v-sheet.auto { height: auto; padding-bottom: 22px; border-bottom: 1px solid var(--v-rule); border-radius: 3px; margin-bottom: clamp(48px, 7vw, 96px); }
+.v-sheet-cap { position: absolute; right: 0; bottom: 0; z-index: 1; padding: 6px 12px; background: var(--v-bg); border: 1px solid var(--v-rule); border-right: 0; border-bottom: 0; font: 11px/1.4 var(--v-mono); letter-spacing: .08em; color: var(--v-faint); }
+
+/* ── Sections ─────────────────────────────────────────────────────── */
+.v-sec { padding-block: clamp(64px, 9vw, 120px); border-bottom: 1px solid var(--v-rule); }
+.v-sec.tight { padding-block: clamp(40px, 6vw, 72px); }
+.v-head { display: grid; gap: 18px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 760px; }
+.v-label { display: flex; align-items: baseline; gap: 14px; font: 12px/1.4 var(--v-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--v-muted); }
+.v-num { font: italic 20px/1 var(--v-serif); letter-spacing: 0; text-transform: none; color: var(--v-acc); }
+.v h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
+.v h3 { font-size: 26px; }
+.v-sub { font-size: 17.5px; color: var(--v-muted); max-width: 40em; }
+.v-split { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.v-split.center { align-items: center; }
+.v-split > .v-head { margin-bottom: 0; }
+
+/* Colonnes séparées par des filets, pas de cartes. */
+.v-cols { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); border-top: 1px solid var(--v-rule-2); }
+.v-cols > * { display: grid; gap: 12px; align-content: start; padding: 28px 32px 8px 0; }
+.v-cols > * + * { padding-left: 32px; border-left: 1px solid var(--v-rule); }
+.v-cols > * > p { color: var(--v-muted); font-size: 15.5px; }
+.v-cols h3 { font-size: 26px; }
+.v-cols .v-tag + h3 { margin-top: 2px; }
+.v-cols a.v-link { margin-top: 6px; font-size: 14.5px; }
+.v-cols.two { --cols: 2; }
+.v-cols.four { --cols: 4; }
+
+/* Liste numérotée à filets. */
+.v-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--v-rule); counter-reset: f; }
+.v-list li { display: grid; grid-template-columns: 34px 1fr; padding: 11px 0; border-bottom: 1px solid var(--v-rule); font-size: 15.5px; }
+.v-list li::before { counter-increment: f; content: counter(f); font: italic 16px/1.5 var(--v-serif); color: var(--v-faint); }
+.v-list li small { grid-column: 2; color: var(--v-muted); font-size: 14px; }
+
+/* Étapes, numérotées en grand. */
+.v-steps { display: grid; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--v-rule-2); counter-reset: s; }
+.v-steps > li { display: grid; gap: 10px; align-content: start; padding: 28px 28px 0 0; }
+.v-steps > li + li { padding-left: 28px; border-left: 1px solid var(--v-rule); }
+.v-steps > li::before { counter-increment: s; content: counter(s); font: 400 44px/1 var(--v-serif); color: var(--v-acc); }
+.v-steps h3 { font-family: var(--v-sans); font-weight: 600; font-size: 17px; letter-spacing: 0; }
+.v-steps p { color: var(--v-muted); font-size: 15.5px; }
+.v-steps.three { --cols: 3; }
+
+/* Tableau clé / valeur. */
+.v-kv { display: grid; grid-template-columns: 9.5em 1fr; margin: 0; border-top: 1px solid var(--v-rule-2); }
+.v-kv dt, .v-kv dd { padding: 16px 0; border-bottom: 1px solid var(--v-rule); margin: 0; }
+.v-kv dt { font: 12px/1.9 var(--v-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--v-faint); }
+.v-kv dd { color: var(--v-text); }
+.v-kv dd small { display: block; color: var(--v-muted); font-size: 14.5px; }
+
+/* Bloc de code, cadre sobre. */
+.v-code { margin: 0; padding: 22px 24px; border: 1px solid var(--v-rule); border-radius: 3px; background: var(--v-bg-2); font: 13.5px/1.9 var(--v-mono); color: var(--v-muted); overflow-x: auto; white-space: pre; }
+.v-code b { font-weight: 400; color: var(--v-text); }
+.v-code span { color: var(--v-faint); }
+
+/* Cadre neutre pour un aperçu d'interface ou une image. */
+.v-frame { border: 1px solid var(--v-rule); border-radius: 3px; background: var(--v-bg-2); padding: clamp(14px, 2.4vw, 24px); }
+.v-frame > img { width: 100%; height: auto; display: block; border-radius: 2px; }
+
+/* Bandeau d'appel final. */
+.v-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; }
+.v-cta .v-head { margin-bottom: 0; }
+
+/* Note discrète (statut, avertissement). */
+.v-note { display: flex; gap: 12px; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--v-rule); border-bottom: 1px solid var(--v-rule); color: var(--v-muted); font-size: 15px; }
+.v-note b { color: var(--v-text); font-weight: 600; }
+.v-note::before { content: ""; width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--v-acc); transform: translateY(-2px); }
+
+/* Pages simples (légal, erreur…). */
+.v-page { padding-block: clamp(48px, 7vw, 88px) clamp(56px, 8vw, 104px); }
+.v-page-head { display: grid; gap: 18px; padding-bottom: clamp(28px, 4vw, 44px); margin-bottom: clamp(28px, 4vw, 44px); border-bottom: 1px solid var(--v-rule); }
+
+/* Colophon : le nom grec, en plein, sans contour ni lueur. */
+.v-colophon { padding-block: clamp(56px, 8vw, 96px) clamp(40px, 6vw, 64px); display: grid; gap: 18px; }
+.v-colophon-greek { font: 400 clamp(3.4rem, 15vw, 12.5rem)/.9 var(--v-serif); letter-spacing: .04em; color: var(--v-bg-3); user-select: none; white-space: nowrap; overflow: hidden; }
+.v-colophon p { max-width: 44em; color: var(--v-faint); font-size: 15px; }
+
+/* ── Kit Salks. (pied de page, pages légales) aux couleurs de la vitrine ── */
+:root .v .sk { --sk-bg: var(--v-bg); --sk-card: var(--v-bg-2); --sk-panel: var(--v-bg-3); --sk-line: var(--v-rule); --sk-text: var(--v-text); --sk-muted: var(--v-muted); --sk-faint: var(--v-faint); --sk-accent: var(--v-acc); }
+.v .sk.sk-footer::before { display: none; }
+.v .sk .sk-footer-credit, .v .sk .sk-footer-credit > a, .v .sk .sk-legal-card, .v .sk .sk-updated { border-radius: 3px; }
+.v .sk.sk-legal { padding-top: clamp(48px, 7vw, 88px); }
+.v .sk.sk-legal h1, .v .sk.sk-legal h2 { font-family: var(--v-serif); font-weight: 400; }
+.v .sk.sk-legal h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); letter-spacing: -.02em; }
+.v .sk.sk-legal h1::after { display: none; }
+.v .sk.sk-legal p, .v .sk.sk-legal li, .v .sk.sk-legal td { line-height: 1.7; }
+
+/* ── Petits écrans ────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .v-nav { display: none; }
+  .v-mast-end { margin-left: auto !important; }
+  .v-menu { display: block; }
+  .v-hero-grid, .v-hero-grid.even, .v-split, .v-cta { grid-template-columns: minmax(0, 1fr); }
+  .v-hero-text { padding-bottom: 0; }
+  .v-sheet { height: 360px; }
+  .v-cols, .v-cols.four, .v-steps { --cols: 2; }
+  .v-cols > :nth-child(odd), .v-steps > li:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .v-cols > *, .v-steps > li { padding-bottom: 28px; }
+  .v-cols.two { --cols: 2; }
+}
+@media (max-width: 640px) {
+  .v { font-size: 16px; }
+  .v-wrap { width: calc(100% - 32px); }
+  .v-mast-inner { gap: 12px; }
+  .v-brand-greek { display: none; }
+  .v-mast .v-btn { padding: 9px 12px; font-size: 13.5px; }
+  .v-facts { gap: 6px 18px; }
+  .v-facts li + li::before { display: none; }
+  .v-cols, .v-cols.two, .v-cols.four, .v-steps, .v-steps.three { --cols: 1; }
+  .v-cols > *, .v-cols > * + *, .v-steps > li, .v-steps > li + li { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--v-rule); }
+  .v-kv { grid-template-columns: minmax(0, 1fr); }
+  .v-kv dt { border-bottom: 0; padding-bottom: 0; }
+  .v-kv dd { padding-top: 4px; }
+  .v-sheet { height: 300px; padding: 14px 14px 0; }
+}

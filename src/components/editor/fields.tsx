@@ -39,7 +39,7 @@ export function TextField({ id, label, value, onChange, placeholder, className, 
 export function Block({ n, title, hint, children }: { n: number; title: string; hint?: string; children: React.ReactNode }) {
   return (
     <section className="card block">
-      <header><span className="n">{String(n).padStart(2, "0")}</span><h2>{title}<span className="dot">.</span></h2></header>
+      <header><span className="n">{String(n).padStart(2, "0")}</span><h2>{title}</h2></header>
       {hint && <p className="hint">{hint}</p>}
       <div className="stack">{children}</div>
     </section>

@@ -1,18 +1,16 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { PantheonLayer } from "@/components/Pantheon";
 import { ROMAN, emptyCitation, emptyMouvement, type FicheDissert, type FicheEL } from "@/lib/fiche";
 import { AddButton, AutoText, Block, RemoveButton, TextField } from "./fields";
 
 type Edit<F> = (fn: (draft: F) => void) => void;
 
-function SheetHead({ seed, kicker, title, placeholder, onTitle, children, side }: {
-  seed: number; kicker: string; title: string; placeholder: string; onTitle: (v: string) => void; children: React.ReactNode; side?: React.ReactNode;
+function SheetHead({ kicker, title, placeholder, onTitle, children, side }: {
+  kicker: string; title: string; placeholder: string; onTitle: (v: string) => void; children: React.ReactNode; side?: React.ReactNode;
 }) {
   return (
     <section className="sheet-head">
-      <PantheonLayer id={`head-${seed}`} seed={seed} count={40} greek={false} emblem={false} meanders={false} />
       <div className="inner">
         <div>
           <span className="kicker"><i />{kicker}</span>
@@ -29,7 +27,7 @@ function SheetHead({ seed, kicker, title, placeholder, onTitle, children, side }
 export function ElForm({ f, edit }: { f: FicheEL; edit: Edit<FicheEL> }) {
   return (
     <>
-      <SheetHead seed={5} kicker={"Explication linéaire" + (f.numero ? " · " + f.numero : "")} title={f.titre} placeholder="Titre du texte" onTitle={(v) => edit((d) => { d.titre = v; })}>
+      <SheetHead kicker={"Explication linéaire" + (f.numero ? " · " + f.numero : "")} title={f.titre} placeholder="Titre du texte" onTitle={(v) => edit((d) => { d.titre = v; })}>
         <TextField id="i-auteur" label="Auteur" value={f.auteur} placeholder="Victor Hugo" onChange={(v) => edit((d) => { d.auteur = v; })} />
         <TextField id="i-oeuvre" label="Œuvre" value={f.oeuvre} placeholder="Les Contemplations (1856)" onChange={(v) => edit((d) => { d.oeuvre = v; })} />
         <TextField id="i-parcours" label="Parcours" value={f.parcours} placeholder="Les Mémoires d'une âme" onChange={(v) => edit((d) => { d.parcours = v; })} />
@@ -140,7 +138,7 @@ function Cover({ f, edit, onError }: { f: FicheDissert; edit: Edit<FicheDissert>
 export function DissertForm({ f, edit, onError }: { f: FicheDissert; edit: Edit<FicheDissert>; onError: (m: string) => void }) {
   return (
     <>
-      <SheetHead seed={9} kicker="Dissertation" title={f.titre} placeholder="Titre de l'œuvre" onTitle={(v) => edit((d) => { d.titre = v; })} side={<Cover f={f} edit={edit} onError={onError} />}>
+      <SheetHead kicker="Dissertation" title={f.titre} placeholder="Titre de l'œuvre" onTitle={(v) => edit((d) => { d.titre = v; })} side={<Cover f={f} edit={edit} onError={onError} />}>
         <TextField id="i-oeuvre" label="Œuvre" value={f.oeuvre} placeholder="Les Fleurs du mal" onChange={(v) => edit((d) => { d.oeuvre = v; })} />
         <TextField id="i-auteur" label="Auteur" value={f.auteur} placeholder="Charles Baudelaire" onChange={(v) => edit((d) => { d.auteur = v; })} />
         <TextField id="i-annee" label="Parution" value={f.annee} placeholder="1857" onChange={(v) => edit((d) => { d.annee = v; })} />

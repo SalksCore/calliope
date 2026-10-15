@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { site } from "@/config/site";
 import { asset } from "@/lib/asset";
 import "@/components/salks/salks.css";
+import "@/components/salks/vitrine.css";
 import "./globals.css";
 import { SalksAnalytics } from "@/components/salks/SalksAnalytics";
 
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e0d11",
+  themeColor: "#0d0d0c",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

@@ -1,27 +1,18 @@
 import Link from "next/link";
-import { Footer } from "@/components/Footer";
-import { PantheonLayer } from "@/components/Pantheon";
-import { Topbar } from "@/components/Topbar";
+import { SiteShell } from "@/components/SiteShell";
 
 export default function NotFound() {
   return (
-    <div className="site">
-      <Topbar product="PAGE INTROUVABLE" />
-      <main className="legal">
-        <section className="hero">
-          <PantheonLayer id="404" seed={404} />
-          <div className="hero-inner">
-            <span className="kicker"><i />Erreur 404</span>
-            <h1>Cette page s&apos;est perdue<span className="dot">.</span></h1>
-            <p className="lead">Même la muse ne la retrouve pas. Reviens à l&apos;accueil ou commence une fiche.</p>
-            <div className="actions">
-              <Link className="btn primary" href="/fiches/">Créer ma fiche</Link>
-              <Link className="btn secondary" href="/">Accueil</Link>
-            </div>
-          </div>
-        </section>
+    <SiteShell>
+      <main className="v-wrap v-hero-solo">
+        <p className="v-over"><b>Erreur 404</b> · page introuvable</p>
+        <h1>Cette page s&apos;est <em>perdue</em>.</h1>
+        <p className="v-lead">Même la muse ne la retrouve pas. Reviens à l&apos;accueil ou commence une fiche.</p>
+        <div className="v-actions">
+          <Link className="v-btn v-btn-solid" href="/fiches/">Créer ma fiche</Link>
+          <Link className="v-link" href="/">Retour à l&apos;accueil</Link>
+        </div>
       </main>
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }

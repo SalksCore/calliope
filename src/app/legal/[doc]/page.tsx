@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { Topbar } from "@/components/Topbar";
+import { SiteShell } from "@/components/SiteShell";
 import { ADDENDA } from "@/components/legal-addenda";
 import { LegalDocumentPage } from "@/components/salks/LegalPages";
 import { docFromPath, legalList } from "@/components/salks/legal";
@@ -26,10 +24,8 @@ export default async function LegalDoc({ params }: Props) {
   const page = await LegalDocumentPage({ site: "calliope", siteName: "Calliope", doc, lang: "fr", base: "/legal", addenda: ADDENDA });
   if (!page) notFound();
   return (
-    <div className="site">
-      <Topbar product="INFORMATIONS LÉGALES" end={<Link className="btn primary" href="/fiches/">Créer ma fiche</Link>} />
+    <SiteShell>
       {page}
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }

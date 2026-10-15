@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useCallback, useDeferredValue, useEffect, useRef, useState } from "react";
-import { PantheonLayer } from "@/components/Pantheon";
 import { TemplatePreview } from "@/components/TemplatePreview";
 import { Topbar } from "@/components/Topbar";
 import { titleOf } from "@/lib/blocks";
@@ -239,17 +238,16 @@ function Welcome({ ready, onCreate }: { ready: boolean; onCreate: (f: Fiche) => 
   return (
     <div className="welcome">
       <section className="hero">
-        <PantheonLayer id="welcome" seed={13} />
         <div className="hero-inner">
           <span className="kicker"><i />Créer ta fiche</span>
-          <h1>Commence par choisir un format<span className="dot">.</span></h1>
+          <h1>Commence par choisir un format</h1>
           <p className="lead">Renseigne ta fiche, vérifie son aperçu, puis télécharge-la en PDF ou en Word. Tout reste dans ce navigateur : pas d&apos;inscription et pas d&apos;envoi sur un serveur.</p>
         </div>
       </section>
       <div className="modes">
         <article className="mode">
           <span className="tag">EL · ORAL</span>
-          <h3>Explication linéaire<span className="dot">.</span></h3>
+          <h3>Explication linéaire</h3>
           <p>Pour préparer chaque texte de ta liste d&apos;oral.</p>
           <ul><li>Introduction et conclusion à coller</li><li>Problématique</li><li>Mouvements, citations, procédés, analyse</li><li>Question de grammaire</li></ul>
           <div className="row">
@@ -259,7 +257,7 @@ function Welcome({ ready, onCreate }: { ready: boolean; onCreate: (f: Fiche) => 
         </article>
         <article className="mode">
           <span className="tag">DISSERT · ÉCRIT</span>
-          <h3>Dissertation<span className="dot">.</span></h3>
+          <h3>Dissertation</h3>
           <p>Pour travailler une œuvre intégrale.</p>
           <ul><li>Photo du livre</li><li>Auteur, contexte, résumé, thèmes</li><li>Citations clés et leur usage</li><li>Sujets possibles et plans</li></ul>
           <div className="row">
@@ -269,7 +267,7 @@ function Welcome({ ready, onCreate }: { ready: boolean; onCreate: (f: Fiche) => 
         </article>
         <article className="mode soon">
           <span className="tag">BIENTÔT</span>
-          <h3>Troisième mode<span className="dot">.</span></h3>
+          <h3>Troisième mode</h3>
           <p>Un autre format arrivera bientôt. Les suggestions sont les bienvenues sur <Link href="https://github.com/SalksCore/calliope/issues">GitHub</Link>.</p>
         </article>
       </div>
