@@ -66,7 +66,7 @@
 .v-brand-name { font: 400 25px/1 var(--v-serif); letter-spacing: -.01em; white-space: nowrap; }
 .v-brand-greek { font: 11px/1 var(--v-mono); letter-spacing: .28em; color: var(--v-faint); white-space: nowrap; }
 .v-nav { display: flex; gap: 24px; margin-left: auto; }
-.v-nav a { font-size: 14.5px; color: var(--v-muted); transition: color .15s; }
+.v-nav a { font-size: 14.5px; color: var(--v-muted); white-space: nowrap; transition: color .15s; }
 .v-nav a:hover, .v-nav a[aria-current="page"] { color: var(--v-text); }
 .v-mast-end { display: flex; align-items: center; gap: 8px; }
 .v-nav + .v-mast-end, .v-brand + .v-mast-end { margin-left: auto; }
@@ -84,6 +84,11 @@
 .v-menu > div { position: absolute; right: 0; top: calc(100% + 12px); display: grid; min-width: 220px; padding: 6px 0; background: var(--v-bg); border: 1px solid var(--v-rule-2); border-radius: 3px; }
 .v-menu > div a { padding: 10px 16px; color: var(--v-muted); }
 .v-menu > div a:hover { color: var(--v-text); background: var(--v-bg-2); }
+.v-menu > div a.v-menu-cta { display: none; margin-top: 6px; border-top: 1px solid var(--v-rule); color: var(--v-text); font-weight: 600; }
+
+/* Bascule de thème : une seule icône visible selon le thème. */
+:root[data-theme="light"] .theme-toggle .only-dark, :root:not([data-theme="light"]) .theme-toggle .only-light { display: none; }
+.v-mast .theme-toggle svg { width: 18px; height: 18px; }
 
 /* ── Ouverture ────────────────────────────────────────────────────── */
 .v-hero { border-bottom: 1px solid var(--v-rule); }
@@ -120,8 +125,10 @@
 
 /* Colonnes séparées par des filets, pas de cartes. */
 .v-cols { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); border-top: 1px solid var(--v-rule-2); }
-.v-cols > * { display: grid; gap: 12px; align-content: start; padding: 28px 32px 8px 0; }
-.v-cols > * + * { padding-left: 32px; border-left: 1px solid var(--v-rule); }
+.v-cols > * { display: grid; gap: 12px; align-content: start; padding: 28px 32px 32px; border-left: 1px solid var(--v-rule); border-bottom: 1px solid var(--v-rule); }
+/* Premier élément de chaque rangée : collé à gauche, sans filet. */
+.v-cols > :nth-child(3n+1), .v-cols.two > *, .v-cols.four > * { padding-left: 0; border-left: 0; }
+.v-cols.two > :nth-child(2n), .v-cols.four > :not(:nth-child(4n+1)) { padding-left: 32px; border-left: 1px solid var(--v-rule); }
 .v-cols > * > p { color: var(--v-muted); font-size: 15.5px; }
 .v-cols h3 { font-size: 26px; }
 .v-cols .v-tag + h3 { margin-top: 2px; }
@@ -189,16 +196,19 @@
 .v .sk.sk-legal p, .v .sk.sk-legal li, .v .sk.sk-legal td { line-height: 1.7; }
 
 /* ── Petits écrans ────────────────────────────────────────────────── */
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   .v-nav { display: none; }
   .v-mast-end { margin-left: auto !important; }
   .v-menu { display: block; }
+}
+@media (max-width: 960px) {
   .v-hero-grid, .v-hero-grid.even, .v-split, .v-cta { grid-template-columns: minmax(0, 1fr); }
   .v-hero-text { padding-bottom: 0; }
   .v-sheet { height: 360px; }
   .v-cols, .v-cols.four, .v-steps { --cols: 2; }
-  .v-cols > :nth-child(odd), .v-steps > li:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .v-cols > *, .v-steps > li { padding-bottom: 28px; }
+  .v .v-cols > :nth-child(n) { padding-left: 32px; border-left: 1px solid var(--v-rule); }
+  .v .v-cols > :nth-child(odd), .v-steps > li:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .v-steps > li { padding-bottom: 28px; }
   .v-cols.two { --cols: 2; }
 }
 @media (max-width: 640px) {
@@ -206,11 +216,16 @@
   .v-wrap { width: calc(100% - 32px); }
   .v-mast-inner { gap: 12px; }
   .v-brand-greek { display: none; }
+  .v-brand-name { font-size: 22px; }
   .v-mast .v-btn { padding: 9px 12px; font-size: 13.5px; }
+  .v-mast-end { gap: 4px; }
+  /* Avec un menu, le bouton d'action passe dans le menu. */
+  .v-mast-end:has(.v-menu) > .v-btn { display: none; }
+  .v-menu > div a.v-menu-cta { display: block; }
   .v-facts { gap: 6px 18px; }
   .v-facts li + li::before { display: none; }
   .v-cols, .v-cols.two, .v-cols.four, .v-steps, .v-steps.three { --cols: 1; }
-  .v-cols > *, .v-cols > * + *, .v-steps > li, .v-steps > li + li { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--v-rule); }
+  .v .v-cols > :nth-child(n), .v-steps > li, .v-steps > li + li { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--v-rule); }
   .v-kv { grid-template-columns: minmax(0, 1fr); }
   .v-kv dt { border-bottom: 0; padding-bottom: 0; }
   .v-kv dd { padding-top: 4px; }

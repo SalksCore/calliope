@@ -1,5 +1,6 @@
 // Copie de freelance/sites/_salks : ne pas modifier ici, relancer sync.mjs.
 import Link from 'next/link';
+import { ThemeToggle } from './ThemeToggle';
 
 /* Gabarit de vitrine Salks. : en-tête et titres de section, mis en forme par vitrine.css.
    La page enveloppe tout dans <div className="v"> ; chaque site donne sa couleur
@@ -7,14 +8,16 @@ import Link from 'next/link';
 
 type NavLink = { href: string; label: string };
 
-/** En-tête : nom du site en serif, nom grec en petit, navigation, outils (thème, langue) et action principale. */
-export function Masthead({ name, greek, href = '/', nav = [], tools, cta }: {
+/** En-tête : nom du site en serif, nom grec en petit, navigation, outils (langue…), bouton de thème et action principale.
+ *  theme : true (défaut) affiche la bascule sombre / clair, une chaîne la mémorise sous cette clé, false la retire. */
+export function Masthead({ name, greek, href = '/', nav = [], tools, cta, theme = true }: {
   name: string;
   greek?: string;
   href?: string;
   nav?: NavLink[];
   tools?: React.ReactNode;
   cta?: NavLink & { external?: boolean };
+  theme?: boolean | string;
 }) {
   const action = cta && (cta.external
     ? <a className="v-btn v-btn-solid" href={cta.href} rel="noopener">{cta.label}</a>
@@ -33,11 +36,15 @@ export function Masthead({ name, greek, href = '/', nav = [], tools, cta }: {
         )}
         <div className="v-mast-end">
           {tools}
+          {theme && <ThemeToggle storageKey={typeof theme === 'string' ? theme : undefined} />}
           {action}
           {nav.length > 0 && (
             <details className="v-menu">
               <summary aria-label="Menu"><i /><i /></summary>
-              <div>{nav.map((n) => <a key={n.href} href={n.href}>{n.label}</a>)}</div>
+              <div>
+                {nav.map((n) => <a key={n.href} href={n.href}>{n.label}</a>)}
+                {cta && <a className="v-menu-cta" href={cta.href}>{cta.label}</a>}
+              </div>
             </details>
           )}
         </div>

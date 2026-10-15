@@ -3,7 +3,6 @@ import { Footer } from "@/components/Footer";
 import { TemplatePreview } from "@/components/TemplatePreview";
 import { Models } from "@/components/Models";
 import { Colophon, Masthead, SectionHead } from "@/components/salks/Vitrine";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { site } from "@/config/site";
 import { exampleEL } from "@/lib/fiche";
 
@@ -17,7 +16,7 @@ const NAV = [
 export default function Home() {
   return (
     <div className="v">
-      <Masthead name={site.name} greek="ΚΑΛΛΙΟΠΗ" nav={NAV} tools={<ThemeToggle />} cta={{ href: "/fiches/", label: "Créer ma fiche" }} />
+      <Masthead name={site.name} greek="ΚΑΛΛΙΟΠΗ" nav={NAV} theme="calliope-theme" cta={{ href: "/fiches/", label: "Créer ma fiche" }} />
 
       <main>
         {/* ─────────────────────────────── ouverture */}

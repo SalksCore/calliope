@@ -245,7 +245,8 @@ input.title-input::placeholder { color: var(--faint); }
 .only-light { display: none !important; }
 :root[data-theme="light"] .only-light { display: revert !important; }
 :root[data-theme="light"] .only-dark { display: none !important; }
-.theme-toggle { position: relative; }
+.theme-toggle { position: relative; display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 3px; background: none; color: var(--muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--raised); }
 .theme-toggle svg { width: 18px; height: 18px; }
 
 /* ── Footer et pages légales : kit Salks. (src/components/salks/salks.css) ── */
