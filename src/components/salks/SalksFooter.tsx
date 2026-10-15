@@ -11,7 +11,7 @@ export const SALKS_LINKS = {
   portfolio: 'https://salks.me',
   github: 'https://github.com/SalksCore',
   earthquest: 'https://github.com/EarthQuestMc',
-  email: 'salks@earthquest.fr',
+  email: 'salks.pro@gmail.com',
 };
 
 export const SALKS_PROJECTS = [

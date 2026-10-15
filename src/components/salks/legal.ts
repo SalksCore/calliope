@@ -17,7 +17,7 @@ const FALLBACK_IDENTITY: Partial<LegalIdentityValues> = {
   editorKind: 'particulier',
   editorName: 'Salks',
   editorStatus: 'Particulier, éditeur non professionnel',
-  editorEmail: 'salks@earthquest.fr',
+  editorEmail: 'salks.pro@gmail.com',
   publisher: 'Salks',
   hostName: 'Cloudflare, Inc. (Cloudflare Pages)',
   hostAddress: '101 Townsend Street, San Francisco, CA 94107, USA',

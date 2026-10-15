@@ -13,7 +13,7 @@ export const site = {
   author: {
     name: "Salks",
     github: "https://github.com/SalksCore",
-    email: "salks@earthquest.fr",
+    email: "salks.pro@gmail.com",
     discord: "salks",
   },
 
