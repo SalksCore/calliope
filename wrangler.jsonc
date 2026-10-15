@@ -1,7 +1,13 @@
-// Calliope sur Cloudflare Pages : site 100 % statique (npm run build → out/).
-// Build command : npm run build   ·   Output directory : out
+// Cloudflare Workers : laisse les commandes par défaut du tableau de bord
+// (Build command vide, Deploy command `npx wrangler deploy`) : le build est lancé par "build" ci-dessous.
 {
   "name": "calliope",
-  "pages_build_output_dir": "out",
-  "compatibility_date": "2025-09-23"
+  "compatibility_date": "2025-09-23",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  "build": {
+    "command": "npm run build"
+  }
 }
