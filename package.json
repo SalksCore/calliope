@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cf:build": "npm run build"
   },
   "dependencies": {
     "docx": "8.5.0",
@@ -23,5 +24,7 @@
     "@types/react-dom": "19.2.7",
     "typescript": "5.9.3"
   },
-  "engines": { "node": ">=20.9" }
+  "engines": {
+    "node": ">=20.9"
+  }
 }
