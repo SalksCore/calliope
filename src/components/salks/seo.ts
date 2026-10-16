@@ -1,5 +1,6 @@
 // Copie de freelance/sites/_salks : ne pas modifier ici, relancer sync.mjs.
 import type { MetadataRoute } from 'next';
+import { LEGAL_SUMMARIES, LEGAL_TITLES, type LegalDocKey, type LegalLang } from './legal-content';
 
 /* Référencement commun des sites Salks. : moteurs de recherche et assistants IA.
    - robotsFor()  : app/robots.ts, ouvre le site aux moteurs ET aux robots des IA ;
@@ -121,3 +122,26 @@ export const schema = {
 
 /** Assemble des briques en un seul document JSON-LD. */
 export const graph = (...nodes: Node[]) => ({ '@context': 'https://schema.org', '@graph': nodes });
+
+/**
+ * Métadonnées d'une page légale : son propre titre, une description qui la distingue
+ * des autres pages (sinon les moteurs voient un contenu dupliqué) et l'image d'aperçu.
+ *   doc absent : la page sommaire /legal.
+ */
+export function legalMetadata(o: { site: string; lang: LegalLang; doc?: LegalDocKey; url: string }) {
+  const { site, lang, doc, url } = o;
+  const title = doc ? LEGAL_TITLES[doc][lang] : lang === 'en' ? 'Legal information' : 'Informations légales';
+  const summary = doc ? LEGAL_SUMMARIES[doc][lang] : '';
+  const lower = summary.charAt(0).toLowerCase() + summary.slice(1);
+  const description = doc
+    ? lang === 'en' ? `${title} of ${site}: ${lower}` : `${title} de ${site} : ${lower}`
+    : lang === 'en'
+      ? `Legal information of ${site}: legal notice, terms of use, privacy, cookies, licenses and credits.`
+      : `Informations légales de ${site} : mentions légales, conditions d’utilisation, confidentialité, cookies, licences et crédits.`;
+  return {
+    title,
+    description,
+    openGraph: { title: `${title} · ${site}`, description, url, siteName: site, type: 'article' as const, images: [{ url: '/og.png', width: 1200, height: 630, alt: site }] },
+    twitter: { card: 'summary_large_image' as const, images: ['/og.png'], title: `${title} · ${site}`, description },
+  };
+}

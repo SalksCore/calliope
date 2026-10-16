@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/SiteShell";
 import { LegalHub } from "@/components/salks/LegalPages";
+import { legalMetadata } from "@/components/salks/seo";
 
-export const metadata: Metadata = { title: "Informations légales", alternates: { canonical: "/legal/" } };
+export const metadata: Metadata = { ...legalMetadata({ site: "Calliope", lang: "fr", url: "/legal/" }), alternates: { canonical: "/legal/" } };
 
 export default function LegalIndex() {
   return (

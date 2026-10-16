@@ -8,9 +8,9 @@ import { graph, schema } from "@/components/salks/seo";
 import { site } from "./site";
 
 /** Titre et description vus dans les résultats de recherche. */
-export const SEO_TITLE = "Calliope · Fiches bac de français : explication linéaire, dissertation, oral";
+export const SEO_TITLE = "Calliope · Fiches du bac de français, oral et écrit";
 export const SEO_DESCRIPTION =
-  "Crée gratuitement tes fiches du bac de français : fiche d'explication linéaire pour l'oral, fiche de dissertation sur l'œuvre intégrale, question de grammaire. Export PDF et Word, sans inscription.";
+  "Crée gratuitement tes fiches du bac de français : explication linéaire pour l'oral, dissertation pour l'écrit. Export PDF et Word, sans inscription.";
 
 /** Tous les noms qu'on donne aux mêmes choses. */
 export const KEYWORDS = [
