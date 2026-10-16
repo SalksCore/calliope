@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { site } from "@/config/site";
 import { asset } from "@/lib/asset";
+import { KEYWORDS, SEO_DESCRIPTION, SEO_TITLE } from "@/config/seo";
+import { ROBOTS_META } from "@/components/salks/seo";
 import "@/components/salks/salks.css";
 import "@/components/salks/vitrine.css";
 import "./globals.css";
@@ -34,10 +36,18 @@ const serif = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} · Fiches de bac de français`, template: `%s · ${site.name}` },
-  description: site.description,
+  title: { default: SEO_TITLE, template: `%s · ${site.name}` },
+  description: SEO_DESCRIPTION,
+  keywords: KEYWORDS,
+  applicationName: site.name,
+  category: "education",
+  authors: [{ name: site.author.name, url: "https://salks.me" }],
+  creator: site.author.name,
+  alternates: { canonical: "/" },
+  robots: ROBOTS_META,
   icons: { icon: asset("/img/favicon.svg") },
-  openGraph: { title: `${site.name}. ${site.tagline}`, description: site.description, locale: "fr_FR", type: "website" },
+  openGraph: { title: SEO_TITLE, description: SEO_DESCRIPTION, url: "/", siteName: site.name, locale: "fr_FR", type: "website" },
+  twitter: { card: "summary", title: SEO_TITLE, description: SEO_DESCRIPTION },
 };
 
 export const viewport: Viewport = {

@@ -14,8 +14,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const doc = docFromPath((await params).doc);
-  return { title: legalList("fr").find((p) => p.doc === doc)?.title ?? "Informations légales" };
+  const path = (await params).doc;
+  const doc = docFromPath(path);
+  return { title: legalList("fr").find((p) => p.doc === doc)?.title ?? "Informations légales", alternates: { canonical: `/legal/${path}/` } };
 }
 
 export default async function LegalDoc({ params }: Props) {

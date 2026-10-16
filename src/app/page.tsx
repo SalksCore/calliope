@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { TemplatePreview } from "@/components/TemplatePreview";
 import { Models } from "@/components/Models";
-import { Colophon, Masthead, SectionHead } from "@/components/salks/Vitrine";
+import { Colophon, Faq, Masthead, SectionHead } from "@/components/salks/Vitrine";
+import { JsonLd } from "@/components/salks/JsonLd";
+import { FAQ, jsonLd } from "@/config/seo";
 import { site } from "@/config/site";
 import { exampleEL } from "@/lib/fiche";
 
@@ -11,11 +13,13 @@ const NAV = [
   { href: "#modeles", label: "Modèles" },
   { href: "#donnees", label: "Tes données" },
   { href: "#code", label: "Code source" },
+  { href: "#questions", label: "Questions" },
 ];
 
 export default function Home() {
   return (
     <div className="v">
+      <JsonLd data={jsonLd()} />
       <Masthead name={site.name} greek="ΚΑΛΛΙΟΠΗ" nav={NAV} theme="calliope-theme" cta={{ href: "/fiches/", label: "Créer ma fiche" }} />
 
       <main>
@@ -23,7 +27,7 @@ export default function Home() {
         <section className="v-hero">
           <div className="v-wrap v-hero-grid">
             <div className="v-hero-text">
-              <p className="v-over"><b>Calliope</b> · muse de l&apos;éloquence · bac de français</p>
+              <p className="v-over"><b>Calliope</b> · muse de l&apos;éloquence · bac de français, oral et écrit</p>
               <h1>Prépare tes textes du bac <em>sans te compliquer la vie</em>.</h1>
               <p className="v-lead">
                 Mets ton texte en ordre, retrouve tes citations et prépare une fiche claire pour l&apos;oral ou la dissertation.
@@ -54,7 +58,7 @@ export default function Home() {
               <article>
                 <span className="v-tag">Épreuve orale</span>
                 <h3>Explication linéaire</h3>
-                <p>Pour préparer chaque texte de ta liste.</p>
+                <p>La fiche de l&apos;oral, pour chaque texte de ta liste. On l&apos;appelle aussi lecture linéaire, analyse ou commentaire linéaire.</p>
                 <ol className="v-list">
                   <li>Introduction et conclusion à dire telles quelles</li>
                   <li>Problématique mise en avant</li>
@@ -66,7 +70,7 @@ export default function Home() {
               <article>
                 <span className="v-tag">Épreuve écrite</span>
                 <h3>Dissertation</h3>
-                <p>Pour travailler une œuvre et son parcours.</p>
+                <p>La fiche de l&apos;écrit, pour une œuvre intégrale et son parcours associé. Elle sert aussi de fiche de lecture pour l&apos;entretien.</p>
                 <ol className="v-list">
                   <li>Photo de couverture du livre</li>
                   <li>Auteur, date, genre, mouvement, parcours</li>
@@ -132,6 +136,16 @@ export default function Home() {
               </div>
             </div>
             <pre className="v-code"><b>git clone</b> {site.repo}.git{"\n"}<b>cd</b> calliope{"\n"}<b>npm</b> install{"\n"}<b>npm</b> run dev   <span># http://localhost:3000</span></pre>
+          </div>
+        </section>
+
+        {/* ─────────────────────────────── questions */}
+        <section className="v-sec" id="questions">
+          <div className="v-wrap v-split">
+            <SectionHead num="ϛ′" label="Questions fréquentes" title="Ce qu’on demande souvent.">
+              Explication linéaire, dissertation, oral et écrit du bac de français : les réponses courtes.
+            </SectionHead>
+            <Faq items={FAQ} />
           </div>
         </section>
 

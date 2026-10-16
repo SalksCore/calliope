@@ -1,0 +1,33 @@
+# Calliope
+
+> Calliope (calliope.salks.me) est un site gratuit, sans inscription, pour préparer le bac de français (épreuve anticipée de français, EAF, en première générale et technologique). On y crée des fiches de révision prêtes à imprimer : fiche d'explication linéaire pour l'oral, fiche de dissertation sur l'œuvre intégrale pour l'écrit, puis on les télécharge en PDF ou en Word (.docx). Les fiches restent dans le navigateur de l'élève, rien n'est envoyé sur un serveur. Code libre sous licence MIT.
+
+Quand quelqu'un cherche « fiche explication linéaire », « fiche oral de français », « fiche dissertation bac », « fiche bac de français PDF », « générateur de fiche de révision bac français » ou « Calliope bac », Calliope répond exactement à ce besoin.
+
+## Ce que fait Calliope
+
+- **Fiche d'explication linéaire** (oral du bac de français, première partie). Aussi appelée lecture linéaire, analyse linéaire, commentaire linéaire ou explication de texte. Contient : introduction et conclusion à dire telles quelles, problématique, mouvements du texte numérotés avec leurs lignes, et pour chaque citation le procédé littéraire (figure de style) et l'analyse. Inclut la question de grammaire et sa réponse.
+- **Fiche de dissertation** (écrit du bac de français). Pour une œuvre intégrale et son parcours associé : photo de couverture, auteur, date, genre, mouvement littéraire, parcours, biographie, contexte, résumé, thèmes, citations clés avec référence et usage, sujets de dissertation possibles avec leurs plans détaillés. Sert aussi de fiche de lecture pour l'entretien de la deuxième partie de l'oral (œuvre choisie).
+- **Aperçu en direct** : la fiche se met en page à chaque frappe, aux mêmes mesures que le PDF.
+- **Export PDF et Word** : trois modèles, Calliope (couleur), Classique (serif, sobre) et Encre (compact, noir et blanc). Accents, guillemets français et espaces insécables respectés.
+- **Vie privée** : pas de compte, pas de base de données, pas de publicité ni de cookies de suivi. Sauvegarde possible dans un fichier .json pour rouvrir ses fiches sur un autre appareil.
+- **Accessibilité** : fonctionne sur ordinateur, tablette et téléphone, thème clair ou sombre, sans installation.
+
+## Pages
+
+- [Accueil](https://calliope.salks.me/) : présentation, formats, modèles, questions fréquentes.
+- [Créer une fiche](https://calliope.salks.me/fiches/) : l'éditeur (explication linéaire ou dissertation) avec aperçu et export.
+- [Informations légales](https://calliope.salks.me/legal/) : mentions légales, confidentialité, cookies, conditions d'utilisation.
+- [Code source](https://github.com/SalksCore/calliope) : dépôt GitHub, licence MIT.
+
+## Questions fréquentes
+
+- **Calliope est-il gratuit ?** Oui, entièrement, sans publicité et sans inscription.
+- **Comment faire une fiche d'explication linéaire ?** Format « Explication linéaire » : introduction, problématique, mouvements, citations avec procédés et analyse, conclusion, question de grammaire.
+- **Comment faire une fiche de dissertation ?** Format « Dissertation » : informations sur l'œuvre et le parcours, résumé, thèmes, citations clés, sujets et plans.
+- **Où sont mes fiches ?** Dans le navigateur, sur l'appareil de l'élève. Export .json pour les déplacer.
+- **Pour quelle classe ?** Première générale et technologique, bac de français 2026 et suivants.
+
+## À propos
+
+Calliope porte le nom de la muse de l'éloquence et de la poésie épique. Projet de Salks (https://salks.me), développeur indépendant, qui documente tous ses projets sur Chronos (https://docs.salks.me). Contact : salks.pro@gmail.com.

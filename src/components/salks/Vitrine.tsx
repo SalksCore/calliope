@@ -82,3 +82,17 @@ export function Colophon({ greek, children }: { greek: string; children?: React.
     </div>
   );
 }
+
+/** Questions fréquentes, dépliables. Les mêmes paires vont dans schema.faq() (seo.ts). */
+export function Faq({ items }: { items: [string, React.ReactNode][] }) {
+  return (
+    <div className="v-faq">
+      {items.map(([q, a]) => (
+        <details key={q}>
+          <summary><h3>{q}</h3><span aria-hidden="true" /></summary>
+          <div>{a}</div>
+        </details>
+      ))}
+    </div>
+  );
+}
