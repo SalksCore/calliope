@@ -136,7 +136,7 @@ Aucune donnée n'est vendue, louée ni utilisée pour du profilage ou de la publ
 
 ## Mesure d'audience sans cookie
 
-Les statistiques sont calculées par Olympe, l'outil de l'éditeur, sans service tiers. Ton adresse IP n'est **jamais enregistrée** : elle sert seulement, avec ton navigateur, à calculer une empreinte salée qui change chaque jour. Il est donc impossible de te reconnaître d'une journée à l'autre ou d'un site à l'autre. Ce dispositif est exempté de consentement selon les lignes directrices de la CNIL.
+Les statistiques sont calculées par Olympe, l'outil de l'éditeur, sans service tiers. Ton adresse IP n'est **jamais enregistrée** : elle sert seulement, avec ton navigateur, à calculer une empreinte salée qui change chaque jour. Il est donc impossible de te reconnaître d'une journée à l'autre ou d'un site à l'autre. Ce dispositif est exempté de consentement selon les lignes directrices de la CNIL. Si ton navigateur envoie « Do Not Track » ou « Global Privacy Control », ta visite n'est pas comptée.
 
 ## Destinataires et transferts
 
@@ -150,7 +150,7 @@ Conformément au RGPD et à la loi Informatique et Libertés, tu disposes d'un d
 
 Si tu estimes que tes droits ne sont pas respectés, tu peux adresser une réclamation à la [CNIL](https://www.cnil.fr/fr/plaintes).`,
 
-  cookies: `**{{site}} ne dépose aucun cookie** : ni publicité, ni mesure d'audience, ni réseau social. C'est pour ça qu'aucun bandeau de consentement ne s'affiche.
+  cookies: `**{{site}} ne dépose aucun cookie** : ni pour la publicité, ni pour les réseaux sociaux, ni pour la mesure d'audience, qui fonctionne sans cookie. C'est pour ça qu'aucun bandeau de consentement ne s'affiche.
 
 ## Ce que le navigateur garde
 
@@ -294,7 +294,7 @@ No data is sold, rented or used for profiling or advertising.
 
 ## Cookie-free analytics
 
-Statistics are computed by Olympe, the publisher's own tool, with no third party. Your IP address is **never stored**: together with your browser it is only used to compute a salted fingerprint that changes every day, so you cannot be recognised from one day or one site to the next. This setup is exempt from consent under the CNIL guidelines.
+Statistics are computed by Olympe, the publisher's own tool, with no third party. Your IP address is **never stored**: together with your browser it is only used to compute a salted fingerprint that changes every day, so you cannot be recognised from one day or one site to the next. This setup is exempt from consent under the CNIL guidelines. If your browser sends “Do Not Track” or “Global Privacy Control”, your visit is not counted.
 
 ## Recipients and transfers
 
@@ -308,7 +308,7 @@ Under the GDPR you have the right to access, rectify, erase, restrict, object to
 
 You can also lodge a complaint with the [CNIL](https://www.cnil.fr/en/complaints).`,
 
-  cookies: `**{{site}} sets no cookies**: no advertising, no analytics, no social networks. That is why no consent banner is shown.
+  cookies: `**{{site}} sets no cookies**: none for advertising, none for social networks and none for audience measurement, which works without cookies. That is why no consent banner is shown.
 
 ## What your browser keeps
 

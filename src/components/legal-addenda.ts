@@ -14,7 +14,7 @@ Calliope n'a ni compte, ni base de données, ni formulaire envoyé à un serveur
   },
   cookies: {
     fr: {
-      replace: `**{{site}} ne dépose aucun cookie** : ni publicité, ni mesure d'audience, ni réseau social. C'est pour ça qu'aucun bandeau de consentement ne s'affiche.
+      replace: `**{{site}} ne dépose aucun cookie** : ni pour la publicité, ni pour les réseaux sociaux, ni pour la mesure d'audience, qui fonctionne sans cookie. C'est pour ça qu'aucun bandeau de consentement ne s'affiche.
 
 ## Ce que le navigateur garde
 
@@ -28,7 +28,7 @@ Le site utilise le stockage local de ton navigateur. Ces informations ne quitten
 
 ## Pourquoi aucun consentement n'est demandé
 
-Ces éléments servent uniquement à faire marcher l'outil que tu utilises. Ils sont exemptés de consentement au titre de l'article 82 de la loi Informatique et Libertés et des lignes directrices de la CNIL.
+Ces éléments servent uniquement à faire marcher l'outil que tu utilises. Ils sont exemptés de consentement au titre de l'article 82 de la loi Informatique et Libertés et des lignes directrices de la CNIL. La mesure d'audience, décrite dans la [politique de confidentialité](confidentialite), n'utilise ni cookie ni stockage sur ton appareil.
 
 ## Les supprimer
 

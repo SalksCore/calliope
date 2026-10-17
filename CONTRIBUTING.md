@@ -11,7 +11,7 @@ npm run build       # vérifie que l'export statique passe
 
 ## Règles
 
-- **Rien ne sort du navigateur.** Pas de base de données, pas d'API, pas de traqueur, pas de service tiers. Une contribution qui envoie des données ailleurs sera refusée.
+- **Les fiches ne sortent pas du navigateur.** Pas de base de données, pas d'API, pas de service tiers. Seule exception : la mesure d'audience anonyme d'Olympe (sans cookie, IP jamais enregistrée), décrite dans la politique de confidentialité. Une contribution qui envoie d'autres données ailleurs sera refusée.
 - **Le site reste statique** (`output: "export"`) : pas de route serveur, pas de cookies.
 - **La DA** des projets Salks : Plus Jakarta Sans et JetBrains Mono, un seul vert laurier (`--hue`), un point de couleur pour fermer les titres, la couche panthéon. Les deux thèmes (sombre et clair) doivent fonctionner.
 - Les textes de l'interface sont en français, au tutoiement.
