@@ -1,4 +1,5 @@
 // Copie de freelance/sites/_salks : ne pas modifier ici, relancer sync.mjs.
+import { olympeUrl } from './olympe';
 import { fillLegal, type LegalIdentityValues, LEGAL_DEFAULTS, LEGAL_DOCS, LEGAL_PATHS, LEGAL_SUMMARIES, LEGAL_TITLES, type LegalDocKey, type LegalLang } from './legal-content';
 import { renderMarkdown } from './markdown';
 
@@ -7,7 +8,7 @@ import { renderMarkdown } from './markdown';
  * copie locale des modèles communs en secours si Olympe ne répond pas.
  *   NEXT_PUBLIC_OLYMPE_URL  adresse d'Olympe (ex. https://olympe.salks.me)
  */
-const OLYMPE = (process.env.NEXT_PUBLIC_OLYMPE_URL ?? '').replace(/\/$/, '');
+const OLYMPE = olympeUrl();
 
 /**
  * Coordonnées utilisées quand Olympe est injoignable : particulier sous pseudonyme,

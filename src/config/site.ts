@@ -6,7 +6,7 @@ export const site = {
   tagline: "Prépare tes textes du bac sans te compliquer la vie.",
   description:
     "Prépare tes textes du bac de français pour l'oral et l'écrit, puis exporte tes fiches en PDF ou en Word. Calliope fonctionne sans inscription, directement dans ton navigateur.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://calliope.salks.me",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://calliope.salks.me").replace("salks.fr", "salks.me"),
   repo: "https://github.com/SalksCore/calliope",
   year: 2026,
 
